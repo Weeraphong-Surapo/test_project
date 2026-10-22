@@ -1,0 +1,29 @@
+name: CI/CD Pipeline to Coolify
+
+on:
+  push:
+    branches:
+      - main # หรือ branch ที่คุณใช้ทำงาน
+
+jobs:
+  test-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # (ตัวอย่าง) ถ้าโปรเจกต์ใช้ Node.js สามารถใส่ขั้นตอนติดตั้งและรันเทสตรงนี้ได้ครับ
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies & Run Tests
+        run: |
+          npm install
+          npm test # หรือคำสั่งรันเทสของโปรเจกต์คุณ
+
+      - name: Trigger Coolify Webhook
+        if: success() # จะทำงานก็ต่อเมื่อรันเทสผ่าน (success) เท่านั้น
+        run: |
+          curl -X GET "${{ secrets.COOLIFY_WEBHOOK_URL }}"
