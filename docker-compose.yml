@@ -6,4 +6,4 @@ services:
     ports:
       - "8002:80"
     volumes:
-      - ./:/usr/share/nginx/html  # ถ้า index.html อยู่ที่ Root โฟลเดอร์เดียวกับ docker-compose.yml ให้ใช้บรรทัดนี้ครับ
+      - ./html:/usr/share/nginx/html:ro  # เสิร์ฟเฉพาะไฟล์ในโฟลเดอร์ html เท่านั้น (ไม่เอา .git / compose ไป expose)
