@@ -6,4 +6,4 @@ services:
     ports:
       - "8002:80"
     volumes:
-      - ./public:/usr/share/nginx/html  # แนะนำให้ชี้ไปที่โฟลเดอร์เก็บไฟล์เว็บไซต์โดยเฉพาะ (เช่น โฟลเดอร์ public)
+      - ./:/usr/share/nginx/html  # ถ้า index.html อยู่ที่ Root โฟลเดอร์เดียวกับ docker-compose.yml ให้ใช้บรรทัดนี้ครับ
