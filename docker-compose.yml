@@ -6,4 +6,4 @@ services:
     ports:
       - "8002:80"
     volumes:
-      - ./:/usr/share/nginx/html   # เอาโฟลเดอร์ปัจจุบันไปทับโฟลเดอร์ Nginx ทั้งหมด
+      - ./public:/usr/share/nginx/html  # แนะนำให้ชี้ไปที่โฟลเดอร์เก็บไฟล์เว็บไซต์โดยเฉพาะ (เช่น โฟลเดอร์ public)
