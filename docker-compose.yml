@@ -2,8 +2,8 @@ version: '3.8'
 
 services:
   web:
-    image: nginx:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "8002:80"
-    volumes:
-      - ./html:/usr/share/nginx/html:ro  # เสิร์ฟเฉพาะไฟล์ในโฟลเดอร์ html เท่านั้น (ไม่เอา .git / compose ไป expose)
