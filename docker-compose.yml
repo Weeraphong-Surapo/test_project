@@ -4,6 +4,6 @@ services:
   web:
     image: nginx:latest
     ports:
-      - "8080:80"
+      - "8002:80"
     volumes:
       - ./:/usr/share/nginx/html   # เอาโฟลเดอร์ปัจจุบันไปทับโฟลเดอร์ Nginx ทั้งหมด
